@@ -33,6 +33,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ExternalLibrary\Bin\AForge\Release\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -52,7 +56,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoxedAppPackerAPI.cs" />
     <Compile Include="Helper.cs" />
+    <Compile Include="VideoCaptureMediaElement.cs" />
     <Compile Include="VideoCapture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
