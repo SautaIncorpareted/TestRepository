@@ -26,5 +26,20 @@ namespace TEST_XML_TREE
             MainWndViewModel vm = new MainWndViewModel();
             this.DataContext = vm;
         }
+
+        private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            var d = (e.NewValue as TreeNode);
+            if(d != null)
+            {
+                if (d.element == null)
+                {
+                    some.Text = "";
+                    return;
+                }
+                some.Text = d.element.ToString();
+            }
+
+        }
     }
 }

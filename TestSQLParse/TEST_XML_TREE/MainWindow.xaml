@@ -4,12 +4,21 @@
         xmlns:cur="clr-namespace:TEST_XML_TREE"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <TreeView ItemsSource="{Binding Children}">
-            <TreeView.Resources>
-                <HierarchicalDataTemplate DataType="{x:Type cur:TreeNode}" ItemsSource="{Binding Children}">
-                    <TextBlock Text="{Binding Path=Content}"></TextBlock>
-                </HierarchicalDataTemplate>
-            </TreeView.Resources>
-        </TreeView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" MinWidth="200"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <TreeView  ItemsSource="{Binding Children}" SelectedItemChanged="TreeView_SelectedItemChanged">
+                <TreeView.Resources>
+                    <HierarchicalDataTemplate DataType="{x:Type cur:TreeNode}" ItemsSource="{Binding Children}">
+                        <TextBlock Text="{Binding Path=Content}"></TextBlock>
+                    </HierarchicalDataTemplate>
+                </TreeView.Resources>
+            </TreeView>
+            <TextBox Name="some" Grid.Column="1" Text="{Binding Text}"></TextBox>
+        </Grid>
+        
     </Grid>
 </Window>

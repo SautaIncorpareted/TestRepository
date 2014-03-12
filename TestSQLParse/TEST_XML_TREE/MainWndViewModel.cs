@@ -22,15 +22,14 @@ namespace TEST_XML_TREE
             var parseRs = SQLParser.Parser.Parse("SELECT * FROM tbAudit");
             XDocument doc = XDocument.Parse(parseRs);
 
-            TreeNode node = new TreeNode("root", null);
+            TreeNode node = new TreeNode("root", null, null);
             nodes.Add(node);
             nodes.Add(node);
             foreach (var elem in doc.Elements())
             {
 
-                TreeNode nodeNew = new TreeNode(elem.Name.LocalName, node);
+                TreeNode nodeNew = new TreeNode(elem.Name.LocalName, node,elem);
                 node.AddChildren(nodeNew);
-                //node.AddChildren(nodeNew);
                 RecusiveParse(elem, nodeNew);
             }
         }
@@ -38,9 +37,21 @@ namespace TEST_XML_TREE
         {
             foreach (var elem in elems.Elements())
             {
-                TreeNode nodeNew = new TreeNode(elem.Name.LocalName, curNode);
+                TreeNode nodeNew = new TreeNode(elem.Name.LocalName, curNode, elem);
                 curNode.AddChildren(nodeNew);
                 RecusiveParse(elem, nodeNew);
+            }
+        }
+        private object selected;
+        public object Selected
+        {
+            get
+            { 
+                return selected;
+            }
+            set 
+            { 
+                selected = value;
             }
         }
 

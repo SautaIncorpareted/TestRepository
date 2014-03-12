@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
 
 namespace TEST_XML_TREE
 {
@@ -14,10 +15,16 @@ namespace TEST_XML_TREE
             get;
             set;
         }
-        public TreeNode(string content, TreeNode parent)
+        public XElement element
+        {
+            get;
+            set;
+        }
+        public TreeNode(string content, TreeNode parent, XElement el)
         {
             Parent = parent;
             Content = content;
+            element = el;
         }
         public void AddChildren(TreeNode newChild)
         {
