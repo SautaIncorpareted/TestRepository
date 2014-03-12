@@ -19,7 +19,10 @@ namespace TEST_XML_TREE
         ObservableCollection<TreeNode> nodes = new ObservableCollection<TreeNode>();
         public MainWndViewModel()
         {
-            var parseRs = SQLParser.Parser.Parse("SELECT * FROM tbAudit");
+            var parseRs = SQLParser.Parser.Parse(@"
+DECLARE @SOME INT;
+    SET @SOME = 100;
+SELECT * FROM tbAudit WHERE data=@SOME");
             XDocument doc = XDocument.Parse(parseRs);
 
             TreeNode node = new TreeNode("root", null, null);
