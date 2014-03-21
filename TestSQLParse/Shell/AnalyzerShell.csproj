@@ -64,7 +64,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModel\AnalyzerShellViewModel.cs" />
-    <Compile Include="ViewModel\FileViewModel.cs" />
+    <Compile Include="ViewModel\MDI\FileViewModel.cs" />
+    <Compile Include="ViewModel\MDI\LayoutUpdateStrategy.cs" />
+    <Compile Include="ViewModel\MDI\PanesStyleSelector.cs" />
+    <Compile Include="ViewModel\MDI\PanesTemplateSelector.cs" />
     <Compile Include="View\AnalyzerShell.xaml.cs">
       <DependentUpon>AnalyzerShell.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -102,6 +105,10 @@
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ExternalSrc\Xceed.Wpf.AvalonDock\Xceed.Wpf.AvalonDock.csproj">
+      <Project>{db81988f-e0f2-45a0-a1fd-8c37f3d35244}</Project>
+      <Name>Xceed.Wpf.AvalonDock</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\VideoCapcher\MVVMCore\MVVMCore.csproj">
       <Project>{ec0d0fd0-a7cb-403a-9855-187ad3719b37}</Project>
       <Name>MVVMCore</Name>

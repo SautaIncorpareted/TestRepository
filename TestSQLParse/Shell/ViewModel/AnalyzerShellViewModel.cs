@@ -7,11 +7,17 @@ using MVVMCore.ViewModels;
 using System.Collections.ObjectModel;
 using MVVMCore.Helpers;
 using System.Windows.Input;
+using AnalyzerShell.ViewModel.MDI;
 
 namespace AnalyzerShell.ViewModel
 {
     public class AnalyzerShellViewModel : BaseViewModel
     {
+        public AnalyzerShellViewModel()
+        {
+          
+        }
+
         private DelegateCommand addToWindows;
         public ICommand AddToWindowsCmd
         {
@@ -28,7 +34,7 @@ namespace AnalyzerShell.ViewModel
 
         private void OnAddToWindows()
         {
-            Windows.Add(new FileViewModel());
+            Windows.Add(new FileViewModel("Прохорчик ебанашка"));
         }
         public ObservableCollection<FileViewModel> Windows
         {

@@ -3,6 +3,7 @@
         xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:localVM="clr-namespace:AnalyzerShell.ViewModel"
+        xmlns:mdi="clr-namespace:AnalyzerShell.ViewModel.MDI"
         Title="MainWindow" Height="350" Width="525">
     <Window.Resources>
         <localVM:AnalyzerShellViewModel x:Key="vm"></localVM:AnalyzerShellViewModel>
@@ -36,7 +37,7 @@
                     <RibbonApplicationMenuItem Header="Exit"/>
                 </RibbonApplicationMenu>
             </Ribbon.ApplicationMenu>
-            <RibbonTab Header="Home" KeyTip="H" >
+            <RibbonTab Header="Parse" KeyTip="H" >
                 <RibbonGroup x:Name="ClipboardGroup" Header="Home">
                     <RibbonMenuButton  Label="Paste" KeyTip="V">
                         <RibbonMenuItem  Header="Keep Text Only" KeyTip="T"/>
@@ -55,13 +56,67 @@
                     <RibbonButton Label="Add" KeyTip="C" Command="{Binding AddToWindowsCmd}" />
                 </RibbonGroup>
             </RibbonTab>
-            <RibbonTab Header="Insert" KeyTip="I">
+            <RibbonTab Header="Search" KeyTip="I">
             </RibbonTab>
-            <RibbonTab Header="PageLayout" KeyTip="L">
+            <RibbonTab Header="TestData" KeyTip="L">
             </RibbonTab>
         </Ribbon>
-        <avalonDock:DockingManager   Grid.Row="1" DocumentsSource="{Binding Winows}">
-            
+        <avalonDock:DockingManager   Grid.Row="1" DocumentsSource="{Binding Windows, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+            <avalonDock:DockingManager.LayoutItemTemplateSelector>
+                <mdi:PanesTemplateSelector>
+                    <mdi:PanesTemplateSelector.FileViewTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{Binding TextContent, UpdateSourceTrigger=PropertyChanged}"/>
+                        </DataTemplate>
+                    </mdi:PanesTemplateSelector.FileViewTemplate>
+                    <mdi:PanesTemplateSelector.FileStatsViewTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding FileSize}"/>
+                                <TextBlock Text="{Binding LastModified}"/>
+                                <TextBox Text="test"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </mdi:PanesTemplateSelector.FileStatsViewTemplate>
+                </mdi:PanesTemplateSelector>
+            </avalonDock:DockingManager.LayoutItemTemplateSelector>
+
+            <avalonDock:DockingManager.LayoutItemContainerStyleSelector>
+                <mdi:PanesStyleSelector>
+                    <mdi:PanesStyleSelector.ToolStyle>
+                        <Style TargetType="{x:Type avalonDock:LayoutAnchorableItem}">
+                            <Setter Property="Title" Value="{Binding  Model.Title}"/>
+                            <Setter Property="IconSource" Value="{Binding Model.IconSource}"/>
+                            <Setter Property="ContentId" Value="{Binding Model.ContentId}"/>
+                            <Setter Property="IsSelected" Value="{Binding Model.IsSelected, Mode=TwoWay}"/>
+                            <Setter Property="IsActive" Value="{Binding Model.IsActive, Mode=TwoWay}"/>
+                        </Style>
+                    </mdi:PanesStyleSelector.ToolStyle>
+                    <mdi:PanesStyleSelector.FileStyle>
+                        <Style TargetType="{x:Type avalonDock:LayoutItem}">
+                            <Setter Property="Title" Value="{Binding Model.Title}"/>
+                            <Setter Property="ToolTip" Value="{Binding Model.FilePath}"/>
+                            <Setter Property="CloseCommand" Value="{Binding Model.CloseCommand}"/>
+                            <Setter Property="IconSource" Value="{Binding Model.IconSource}"/>
+                            <Setter Property="ContentId" Value="{Binding Model.ContentId}"/>
+                        </Style>
+                    </mdi:PanesStyleSelector.FileStyle>
+                </mdi:PanesStyleSelector>
+            </avalonDock:DockingManager.LayoutItemContainerStyleSelector>
+
+
+            <avalonDock:DockingManager.LayoutUpdateStrategy>
+                <mdi:LayoutUpdateStrategy/>
+            </avalonDock:DockingManager.LayoutUpdateStrategy>
+
+            <avalonDock:LayoutRoot>
+                <avalonDock:LayoutPanel Orientation="Vertical">
+                    <avalonDock:LayoutDocumentPane/>
+                    <avalonDock:LayoutAnchorablePane Name="ToolsPane" DockHeight="150">
+                    </avalonDock:LayoutAnchorablePane>
+                </avalonDock:LayoutPanel>
+            </avalonDock:LayoutRoot>
         </avalonDock:DockingManager>
     </Grid>
 </Window>
