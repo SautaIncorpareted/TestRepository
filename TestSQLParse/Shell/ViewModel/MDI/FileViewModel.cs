@@ -8,9 +8,9 @@ namespace AnalyzerShell.ViewModel.MDI
 {
     public class FileViewModel : BaseViewModel
     {
-        public FileViewModel(string header)
+        public FileViewModel(string title)
         {
-            Title = header;
+            Title = title;
         }
         public string Title
         {
