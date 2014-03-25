@@ -35,11 +35,10 @@ namespace AnalyzerShell.ViewModel.MDI
         {
             var itemAsLayoutContent = item as LayoutContent;
 
-            if (item is FileViewModel)
-                return FileViewTemplate;
+            return FileViewTemplate;
 
 
-            return base.SelectTemplate(item, container);
+            //return base.SelectTemplate(item, container);
         }
     }
 }

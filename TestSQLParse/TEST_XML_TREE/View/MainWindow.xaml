@@ -1,8 +1,10 @@
-﻿<Window x:Class="TEST_XML_TREE.MainWindow"
+﻿<Window x:Class="DCA.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:cur="clr-namespace:TEST_XML_TREE"
+        xmlns:curr="clr-namespace:DCA.View"
+        xmlns:cur="clr-namespace:DCA"
         Title="MainWindow" Height="350" Width="525">
+    
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -19,6 +21,6 @@
             </TreeView>
             <TextBox Name="some" Grid.Column="1" Text="{Binding Text}"></TextBox>
         </Grid>
-        
+        <curr:DCASingleParser></curr:DCASingleParser>
     </Grid>
 </Window>

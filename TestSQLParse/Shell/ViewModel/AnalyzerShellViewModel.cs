@@ -15,9 +15,21 @@ namespace AnalyzerShell.ViewModel
     {
         public AnalyzerShellViewModel()
         {
-          
+
         }
 
+        private DelegateCommand parseSingleFile;
+        public ICommand ParseSingleFile
+        {
+            get
+            {
+                if (parseSingleFile == null)
+                {
+                    parseSingleFile = new DelegateCommand((x) => DCA.Launcher.RunSingleParseFile(Windows), null);
+                }
+                return parseSingleFile;
+            }
+        }
         private DelegateCommand addToWindows;
         public ICommand AddToWindowsCmd
         {
@@ -36,7 +48,7 @@ namespace AnalyzerShell.ViewModel
         {
             Windows.Add(new FileViewModel("Прохорчик ебанашка"));
         }
-        public ObservableCollection<FileViewModel> Windows
+        public ObservableCollection<BaseViewModel> Windows
         {
             get
             {
@@ -47,6 +59,6 @@ namespace AnalyzerShell.ViewModel
                 _windows = value;
             }
         }
-        private ObservableCollection<FileViewModel> _windows = new ObservableCollection<FileViewModel>();
+        private ObservableCollection<BaseViewModel> _windows = new ObservableCollection<BaseViewModel>();
     }
 }

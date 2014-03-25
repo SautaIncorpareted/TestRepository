@@ -4,6 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:localVM="clr-namespace:AnalyzerShell.ViewModel"
         xmlns:mdi="clr-namespace:AnalyzerShell.ViewModel.MDI"
+        xmlns:dca="clr-namespace:DCA.View;assembly=DCA"
         Title="MainWindow" Height="350" Width="525">
     <Window.Resources>
         <localVM:AnalyzerShellViewModel x:Key="vm"></localVM:AnalyzerShellViewModel>
@@ -38,12 +39,12 @@
                 </RibbonApplicationMenu>
             </Ribbon.ApplicationMenu>
             <RibbonTab Header="Parse" KeyTip="H" >
-                <RibbonGroup x:Name="ClipboardGroup" Header="Home">
+                <RibbonGroup x:Name="ClipboardGroup" Header="DoSmth">
+                    <RibbonButton Label="ParseFile" KeyTip="X" Command="{Binding ParseSingleFile}" />
                     <RibbonMenuButton  Label="Paste" KeyTip="V">
-                        <RibbonMenuItem  Header="Keep Text Only" KeyTip="T"/>
+                        <RibbonMenuItem Header="ParseFile" KeyTip="T" Command="{Binding ParseSingleFile}"/>
                         <RibbonMenuItem Header="Paste Special..." KeyTip="S"/>
                     </RibbonMenuButton>
-                    <RibbonButton Label="Cut" KeyTip="X" />
                     <RibbonButton  Label="Copy" KeyTip="C" />
                     <RibbonButton  Label="Format Painter" KeyTip="FP" />
                 </RibbonGroup>
@@ -67,8 +68,9 @@
                 <mdi:PanesTemplateSelector>
                     <mdi:PanesTemplateSelector.FileViewTemplate>
                         <DataTemplate>
-                            <TextBox Text="{Binding TextContent, UpdateSourceTrigger=PropertyChanged}"/>
+                            <dca:DCASingleParser></dca:DCASingleParser>
                         </DataTemplate>
+                        
                     </mdi:PanesTemplateSelector.FileViewTemplate>
                     <mdi:PanesTemplateSelector.FileStatsViewTemplate>
                         <DataTemplate>

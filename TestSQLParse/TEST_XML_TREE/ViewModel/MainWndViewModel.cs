@@ -8,7 +8,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Collections.ObjectModel;
 
-namespace TEST_XML_TREE
+namespace DCA
 {
     class MainWndViewModel : BaseViewModel
     {

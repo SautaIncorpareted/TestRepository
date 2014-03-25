@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TEST_XML_TREE
+namespace DCA
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml

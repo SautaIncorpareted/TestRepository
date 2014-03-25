@@ -26,10 +26,10 @@ namespace AnalyzerShell.ViewModel.MDI
         public override System.Windows.Style SelectStyle(object item, System.Windows.DependencyObject container)
         {
 
-            if (item is FileViewModel)
+            //if (item is FileViewModel)
                 return FileStyle;
 
-            return base.SelectStyle(item, container);
+            //return base.SelectStyle(item, container);
         }
     }
 }

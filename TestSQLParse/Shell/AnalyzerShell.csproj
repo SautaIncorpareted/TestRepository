@@ -113,6 +113,10 @@
       <Project>{ec0d0fd0-a7cb-403a-9855-187ad3719b37}</Project>
       <Name>MVVMCore</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TEST_XML_TREE\DCA.csproj">
+      <Project>{2e2a4d97-b665-4972-a09e-a920803b7193}</Project>
+      <Name>DCA</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

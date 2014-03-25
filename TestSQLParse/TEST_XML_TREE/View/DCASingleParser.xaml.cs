@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TEST_XML_TREE.View
+namespace DCA.View
 {
     /// <summary>
     /// Interaction logic for DCASingleParser.xaml
