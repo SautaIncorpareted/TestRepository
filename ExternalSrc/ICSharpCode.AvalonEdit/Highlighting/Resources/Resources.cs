@@ -20,8 +20,9 @@ namespace ICSharpCode.AvalonEdit.Highlighting
 		
 		internal static void RegisterBuiltInHighlightings(HighlightingManager.DefaultHighlightingManager hlm)
 		{
-			hlm.RegisterHighlighting("XmlDoc", null, "XmlDoc.xshd");
-			hlm.RegisterHighlighting("C#", new[] { ".cs" }, "CSharp-Mode.xshd");
+            hlm.RegisterHighlighting("XmlDoc", null, "XmlDoc.xshd");
+            hlm.RegisterHighlighting("C#", new[] { ".cs" }, "CSharp-Mode.xshd");
+            hlm.RegisterHighlighting("sql", new[] { ".sql" }, "sql.xshd");
 			
 			hlm.RegisterHighlighting("JavaScript", new[] { ".js" }, "JavaScript-Mode.xshd");
 			hlm.RegisterHighlighting("HTML", new[] { ".htm", ".html" }, "HTML-Mode.xshd");

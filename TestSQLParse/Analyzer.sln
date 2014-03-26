@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSQLParse", "TestSQLParse\TestSQLParse.csproj", "{5BC2EDC3-3C7A-440D-9479-51E251C3E505}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DCA", "TEST_XML_TREE\DCA.csproj", "{2E2A4D97-B665-4972-A09E-A920803B7193}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSQLParser", "SQLParser\TSQLParser.csproj", "{0D2491D2-ADE3-45FB-8EDD-8E0DCAA4D08E}"
@@ -57,16 +55,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5BC2EDC3-3C7A-440D-9479-51E251C3E505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5BC2EDC3-3C7A-440D-9479-51E251C3E505}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5BC2EDC3-3C7A-440D-9479-51E251C3E505}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{5BC2EDC3-3C7A-440D-9479-51E251C3E505}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{5BC2EDC3-3C7A-440D-9479-51E251C3E505}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{5BC2EDC3-3C7A-440D-9479-51E251C3E505}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5BC2EDC3-3C7A-440D-9479-51E251C3E505}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5BC2EDC3-3C7A-440D-9479-51E251C3E505}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{5BC2EDC3-3C7A-440D-9479-51E251C3E505}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{5BC2EDC3-3C7A-440D-9479-51E251C3E505}.Release|x86.ActiveCfg = Release|Any CPU
 		{2E2A4D97-B665-4972-A09E-A920803B7193}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2E2A4D97-B665-4972-A09E-A920803B7193}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E2A4D97-B665-4972-A09E-A920803B7193}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU

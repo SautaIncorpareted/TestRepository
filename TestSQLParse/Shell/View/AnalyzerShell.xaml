@@ -5,7 +5,7 @@
         xmlns:localVM="clr-namespace:AnalyzerShell.ViewModel"
         xmlns:mdi="clr-namespace:AnalyzerShell.ViewModel.MDI"
         xmlns:dca="clr-namespace:DCA.View;assembly=DCA"
-        Title="MainWindow" Height="350" Width="525">
+        Title="AnalayzerShell" Height="350" Width="525">
     <Window.Resources>
         <localVM:AnalyzerShellViewModel x:Key="vm"></localVM:AnalyzerShellViewModel>
     </Window.Resources>

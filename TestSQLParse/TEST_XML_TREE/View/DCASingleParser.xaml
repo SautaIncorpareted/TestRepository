@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+             xmlns:parser="clr-namespace:SQLParser;assembly=SQLParser"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="600">
     <Grid>
@@ -14,7 +15,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Menu Grid.Row="0" Grid.ColumnSpan="2">
@@ -22,16 +23,44 @@
             <MenuItem Header="Edit"></MenuItem>
             <MenuItem Header="View"></MenuItem>
         </Menu>
-        <TreeView Grid.Row="1" Grid.RowSpan="2"></TreeView>
+        <TreeView Grid.Row="1" Grid.RowSpan="2" MinWidth="200" MaxWidth="400" ItemsSource="{Binding FullTree}" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type parser:AbstractStatement}" ItemsSource="{Binding Children}">
+                    <TextBlock Text="{Binding NameOfStatement}"></TextBlock>
+                </HierarchicalDataTemplate>
+
+            </TreeView.Resources>
+           
+        </TreeView>
         <ToolBar Grid.Column="1" Grid.Row="1">
-            <Button>DoSmth</Button>
+            <Border BorderBrush="Black" BorderThickness="1">
+                <TextBox Text="{Binding PathToFile, UpdateSourceTrigger=PropertyChanged}" Width="200"/>
+            </Border>
+            <Button Command="{Binding OpenDocument}">Open</Button>
+            <Separator></Separator>
+            <Button Command="{Binding ParseFile}">Parse</Button>
+            <Separator></Separator>
         </ToolBar>
-        <avalonEdit:TextEditor Grid.Column="1" Grid.Row="2"
-				Name="textEditor"
+        <TabControl Grid.Column="1" Grid.Row="2">
+            <TabItem Header="Source code">
+                <avalonEdit:TextEditor Document="{Binding SourceCode}" Grid.Column="1" Grid.Row="2"
+				Name="sourceCode"
 				FontFamily="Consolas"
 				FontSize="10pt"
-				SyntaxHighlighting="C#"
-			>Welcome to AvalonEdit!
-        </avalonEdit:TextEditor>
+				SyntaxHighlighting="sql"
+			>
+                </avalonEdit:TextEditor>
+            </TabItem>
+            <TabItem Header="Parsed Xml">
+                <avalonEdit:TextEditor Document="{Binding ParsedXmlSourceCode}" Grid.Column="1" Grid.Row="2"
+				Name="xmlSource"
+				FontFamily="Consolas"
+				FontSize="10pt"
+				SyntaxHighlighting="XML"
+			>
+                </avalonEdit:TextEditor>
+            </TabItem>
+        </TabControl>
+
     </Grid>
 </UserControl>

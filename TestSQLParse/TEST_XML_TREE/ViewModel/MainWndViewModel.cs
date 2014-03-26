@@ -27,7 +27,6 @@ SELECT * FROM tbAudit WHERE data=@SOME");
 
             TreeNode node = new TreeNode("root", null, null);
             nodes.Add(node);
-            nodes.Add(node);
             foreach (var elem in doc.Elements())
             {
 
