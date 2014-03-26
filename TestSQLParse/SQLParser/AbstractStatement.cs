@@ -2,19 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
 namespace SQLParser
 {
     public abstract class AbstractStatement
     {
+        XElement XmlNodeOfTree;
         public AbstractStatement(XElement element)
         {
-            if (element == null)
-            {
-                return;
-            }
+            XmlNodeOfTree = element;
             NameOfStatement = element.Name.ToString();
+            var location = element.Attributes().FirstOrDefault(x => x.Name.ToString() == "Location");
+            if (location != null)
+            {
+                var match = Regex.Match(location.Value, @"\({2}(\d+),(\d+)\),\s*\((\d+),(\d+)", RegexOptions.Compiled);
+                LineStart = int.Parse(match.Groups[1].Value);
+                PositionStart = int.Parse(match.Groups[2].Value);
+                LineEnd = int.Parse(match.Groups[3].Value);
+                PositionEnd = int.Parse(match.Groups[4].Value);
+                //location.Value
+            }
         }
         public string NameOfStatement
         {
@@ -26,12 +35,22 @@ namespace SQLParser
             get;
             set;
         }
-        public int Line
+        public int LineStart
         {
             get;
             set;
         }
-        public int Position
+        public int PositionStart
+        {
+            get;
+            set;
+        }
+        public int LineEnd
+        {
+            get;
+            set;
+        }
+        public int PositionEnd
         {
             get;
             set;

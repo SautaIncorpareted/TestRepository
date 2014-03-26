@@ -5,6 +5,7 @@
   <Color name="String2" foreground="#993" exampleText="string text = &quot;Hello, World!&quot;"/>
   <Color name="Comment" foreground="Green" exampleText="string text = &quot;Hello, World!&quot;"/>
   <Color name="Punctuation" foreground="Red" exampleText="string text = &quot;Hello, World!&quot;"/>
+  <Color name="Punctuation2" foreground="DarkGreen" />
   <RuleSet  ignoreCase="true">
     <Span color="String" multiline="true" >
       <Begin>'</Begin>
@@ -213,6 +214,9 @@
     </Keywords>
     <Rule color="Punctuation">
       [?,.;()\[\]{}+\-/%*&lt;&gt;^+~!|&amp;]+
+    </Rule>
+    <Rule color="Punctuation2">
+      @+[a-z]+
     </Rule>
 
   </RuleSet>

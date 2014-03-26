@@ -18,16 +18,7 @@ namespace SQLParser
         {
             xmlDocument = XDocument.Parse(xmlStr);
             Root = new BaseStatement(xmlDocument.Root);
-
             RecursiveParse(Root, xmlDocument.Root);
-
-            //foreach (var elem in xmlDocument.Root.Elements())
-            //{
-            //    var newStatement = new BaseStatement(elem);
-            //    Root.Children.Add(newStatement);
-            //    RecursiveParse(newStatement, elem);
-            //}
-
         }
         private void RecursiveParse(AbstractStatement statement, XElement element)
         {

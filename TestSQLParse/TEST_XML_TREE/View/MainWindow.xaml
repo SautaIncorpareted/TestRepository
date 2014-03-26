@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:curr="clr-namespace:DCA.View"
         xmlns:cur="clr-namespace:DCA"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525" WindowState="Maximized" WindowStartupLocation="CenterOwner">
     
     <Grid>
         <Grid>
