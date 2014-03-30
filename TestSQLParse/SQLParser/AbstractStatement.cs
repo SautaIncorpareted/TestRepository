@@ -13,7 +13,6 @@ namespace SQLParser
         public AbstractStatement(XElement element)
         {
             XmlNodeOfTree = element;
-            NameOfStatement = element.Name.ToString();
             var location = element.Attributes().FirstOrDefault(x => x.Name.ToString() == "Location");
             if (location != null)
             {
@@ -24,6 +23,8 @@ namespace SQLParser
                 PositionEnd = int.Parse(match.Groups[4].Value);
                 //location.Value
             }
+            NameOfStatement = string.Format("{0} : {1} : Line {2}", element.Name.ToString(), this.GetType().Name, LineStart);
+
         }
         public string NameOfStatement
         {

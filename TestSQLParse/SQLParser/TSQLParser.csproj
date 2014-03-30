@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SQLParser</RootNamespace>
     <AssemblyName>SQLParser</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.SqlServer.Management.SqlParser, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
@@ -49,7 +51,29 @@
     <Compile Include="Parser.cs" />
     <Compile Include="ParseXmlToTree.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatementCreator.cs" />
+    <Compile Include="TSQLStatements\VariablesDeclaration\SqlColumnDefinition.cs" />
+    <Compile Include="TSQLStatements\VariablesDeclaration\SqlTableDefinition.cs" />
+    <Compile Include="TSQLStatements\VariablesDeclaration\SqlInlineTableVariableDeclaration.cs" />
+    <Compile Include="TSQLStatements\VariablesDeclaration\SqlInlineTableVariableDeclareStatement.cs" />
+    <Compile Include="TSQLStatements\VariablesDeclaration\SqlIdentifier.cs" />
+    <Compile Include="TSQLStatements\VariablesDeclaration\SqlObjectIdentifier.cs" />
+    <Compile Include="TSQLStatements\VariablesDeclaration\SqlDataType.cs" />
+    <Compile Include="TSQLStatements\VariablesDeclaration\SqlDataTypeSpecification.cs" />
+    <Compile Include="TSQLStatements\VariablesDeclaration\SqlVariableDeclaration.cs" />
+    <Compile Include="TSQLStatements\VariablesDeclaration\SqlVariableDeclareStatement.cs" />
+    <Compile Include="TSQLStatements\SqlBatch.cs" />
+    <Compile Include="TSQLStatements\Errors.cs" />
+    <Compile Include="TSQLStatements\SqlScript.cs" />
+    <Compile Include="UnkownStatement.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ParserApplication\ParserApplication.fsproj">
+      <Project>{9fa462c7-e8b5-4242-92ca-7203810ffc63}</Project>
+      <Name>ParserApplication</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

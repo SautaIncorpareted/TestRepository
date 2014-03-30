@@ -9,17 +9,15 @@ namespace SQLParser
 {
     public class Parser
     {
-        public static string Parse(string parseStr)
+        public static string Parse(string parseSourceCode)
         {
             var pOption = new Microsoft.SqlServer.Management.SqlParser.Parser.ParseOptions();
-            var some = Microsoft.SqlServer.Management.SqlParser.Parser.Parser.Parse(parseStr, pOption);
-            Type type = some.GetType();
-            MemberInfo[] members = type.GetMembers(BindingFlags.NonPublic | BindingFlags.GetProperty);
-            var all1 = some.GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
-            var parseResult = all1.First().GetValue(some);
-            var some11 = parseResult.GetType().GetProperties().First(x => x.Name == "Xml");
-            var dd = some11.GetValue(parseResult, null);
-            return dd.ToString();
+            var msParseResult = Microsoft.SqlServer.Management.SqlParser.Parser.Parser.Parse(parseSourceCode, pOption);
+            var all1 = msParseResult.GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+            var parseResult = all1.First().GetValue(msParseResult);
+            var refToPropery = parseResult.GetType().GetProperties().First(x => x.Name == "Xml");
+            var searchedResult = refToPropery.GetValue(parseResult, null);
+            return searchedResult.ToString();
         }
     }
 }
