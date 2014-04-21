@@ -1,0 +1,43 @@
+﻿<Window x:Class="FTPGUIBackupper.ConfigWnd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="FTP config" Height="350" Width="525">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="Margin" Value="4"></Setter>
+                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="Margin" Value="4"></Setter>
+                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock>UserName</TextBlock>
+        <TextBox Grid.Column="1" Text="{Binding UserName}"></TextBox>
+        <TextBlock  Grid.Row="1">Password</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Password}"></TextBox>
+        <TextBlock  Grid.Row="2">IP</TextBlock>
+        <TextBox Grid.Column="1"  Grid.Row="2" Text="{Binding IpAdress}"></TextBox>
+        <TextBlock  Grid.Row="3">Port</TextBlock>
+        <TextBox Grid.Column="1"  Grid.Row="3" Text="{Binding Port}"></TextBox>
+        <Button Grid.Row="10" VerticalAlignment="Bottom" Grid.Column="1" Width="80" HorizontalAlignment="Right" Margin="4" IsDefault="True" Command="{Binding OKCmd}">OK</Button>
+    </Grid>
+</Window>
