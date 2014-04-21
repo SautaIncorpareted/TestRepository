@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FTP_backaper
+namespace Windowless_Sample
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
