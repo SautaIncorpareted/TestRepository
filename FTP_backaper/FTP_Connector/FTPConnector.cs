@@ -1,0 +1,75 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Net;
+using IOHelper;
+
+namespace FTP_Connector
+{
+    public class FTPConnector
+    {
+        public Uri uri = null;
+        public FTPConnector(string ip, int port, string password, string userName)
+        {
+            UriBuilder builder = new UriBuilder("ftp", ip, port) { Password = password, UserName = userName };
+            uri = builder.Uri;
+        }
+        public string ReadFile(string path)
+        {
+            try
+            {
+                var localUri = new Uri(uri, path);
+                FtpWebRequest ftpRequest = (FtpWebRequest)WebRequest.Create(localUri);
+                ftpRequest.Method = WebRequestMethods.Ftp.DownloadFile;
+                using (var ftpResponse = (FtpWebResponse)ftpRequest.GetResponse())
+                {
+                    using (var stream = ftpResponse.GetResponseStream())
+                    {
+                        using (StreamReader RD = new StreamReader(stream))
+                        {
+                            var file = RD.ReadToEnd();
+                            ftpResponse.Close();
+                            return file;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message + "\nError file:" + path.Replace("%", @"\%"));
+                return string.Empty;
+            }
+        }
+        public string GetFtpPathData(string path)
+        {
+            while (true)
+            {
+                try
+                {
+                    var localUri = new Uri(uri, path);
+                    FtpWebRequest ftpRequest = (FtpWebRequest)WebRequest.Create(localUri);
+                    ftpRequest.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
+                    var ftpResponse = (FtpWebResponse)ftpRequest.GetResponse();
+                    var stream = ftpResponse.GetResponseStream();
+                    StreamReader RD = new StreamReader(stream);
+                    var conf = RD.ReadToEnd();
+                    ftpResponse.Close();
+                    return conf;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error:" + ex.Message);
+                    Console.WriteLine("e to exist");
+                    var key = Console.ReadKey();
+                    if (key.KeyChar == 'e')
+                    {
+                        return string.Empty;
+                    }
+                }
+            }
+        }
+    }
+}
