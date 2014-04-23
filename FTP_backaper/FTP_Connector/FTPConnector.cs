@@ -12,9 +12,11 @@ namespace FTP_Connector
     public class FTPConnector
     {
         public Uri uri = null;
-        public FTPConnector(string ip, int port, string password, string userName)
+        Action<string> ErrLog;
+        public FTPConnector(string ip, int port, string password, string userName, Action<string> errLog)
         {
             UriBuilder builder = new UriBuilder("ftp", ip, port) { Password = password, UserName = userName };
+            ErrLog = errLog;
             uri = builder.Uri;
         }
         public string ReadFile(string path)
@@ -39,7 +41,7 @@ namespace FTP_Connector
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message + "\nError file:" + path.Replace("%", @"\%"));
+                ErrLog(ex.Message + "\nError file:" + path.Replace("%", @"\%"));
                 return string.Empty;
             }
         }
@@ -61,13 +63,7 @@ namespace FTP_Connector
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error:" + ex.Message);
-                    Console.WriteLine("e to exist");
-                    var key = Console.ReadKey();
-                    if (key.KeyChar == 'e')
-                    {
-                        return string.Empty;
-                    }
+                    ErrLog("Error:" + ex.Message);
                 }
             }
         }

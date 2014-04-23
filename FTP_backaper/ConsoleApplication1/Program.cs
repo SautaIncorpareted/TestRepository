@@ -14,14 +14,14 @@ namespace ConsoleApplication1
         {
             var now = DateTime.Now;
 
-            FTPConnector connector = new FTPConnector("", 21, "451417451417", "");
+            FTPConnector connector = new FTPConnector("", 21, "451417451417", "1", x => Console.WriteLine(x));
 
-            FTPRootTreeNode root = new FTPRootTreeNode("", "docu2/data/pages", null, connector, @"D:\docu");
+            FTPRootTreeNode root = new FTPRootTreeNode("", "docu2/data/pages", connector, @"D:\docu");
             root.MapToObject();
             root.MapToLocalMashine();
-            Console.WriteLine("Time:" + (DateTime.Now - now));
+            //Console.WriteLine("Time:" + (DateTime.Now - now));
 
-            Console.ReadKey();
+            //Console.ReadKey();
         }
     }
 }

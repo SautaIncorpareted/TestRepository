@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\ExternalLibrary\Zipper\zip-v1.9\Release\Ionic.Zip.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -68,9 +71,14 @@
       <DependentUpon>ConfigWnd.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NotifyIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Launcher.cs" />
+    <Compile Include="NotifyIconViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -98,14 +106,44 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ExternalSrc\wpf-notifyicon\NotifyIconWpf\NotifyIconWpf.csproj">
+      <Project>{7ac63864-7638-41c4-969c-d3197ef2bed9}</Project>
+      <Name>NotifyIconWpf</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\VideoCapcher\MVVMCore\MVVMCore.csproj">
       <Project>{ec0d0fd0-a7cb-403a-9855-187ad3719b37}</Project>
       <Name>MVVMCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FTP_backaper\FTP_backaper.csproj">
+      <Project>{38f4db31-7b04-4fe4-88d0-8f601e3dcc8a}</Project>
+      <Name>FTP_backaper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FTP_Connector\FTP_Connector.csproj">
+      <Project>{48741041-4cce-4dcd-a40c-df02cb78c853}</Project>
+      <Name>FTP_Connector</Name>
     </ProjectReference>
     <ProjectReference Include="..\IOHelper\IOHelper.csproj">
       <Project>{80734bae-b784-4f48-8c5e-5dd78d4c2ad7}</Project>
       <Name>IOHelper</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Bulb.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Computers.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Error.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Inactive.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\NetDrives.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\index.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

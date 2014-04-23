@@ -12,7 +12,6 @@ namespace FTP_backaper.FTPTree
         public FTPFileTreeNode(string name, string globalPath, FTPAbstractTreeNode parent, FTPRootTreeNode root, string localPath) : base(name, globalPath, parent, root, localPath) { }
         public override void MapToObject()
         {
-            //throw new NotImplementedException();
         }
 
         public override void MapToLocalMashine()

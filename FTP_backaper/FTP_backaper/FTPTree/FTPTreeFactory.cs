@@ -22,12 +22,12 @@ namespace FTP_backaper.FTPTree
 
             if (ftpMatch.Groups["dir"].Success && ftpMatch.Groups["name"].Success)
             {
-                Console.WriteLine(string.Format("DIR:{0}", globalPath + "/" + ftpMatch.Groups["name"].Value));
+                //Console.WriteLine(string.Format("DIR:{0}", globalPath + "/" + ftpMatch.Groups["name"].Value));
                 return new FTPDirectoryTreeNode(ftpMatch.Groups["name"].Value.Trim(), globalPath, parent, root, localPath);
             }
             if (ftpMatch.Groups["file"].Success && ftpMatch.Groups["name"].Success)
             {
-                Console.WriteLine(string.Format("file:{0}", globalPath + "/" + ftpMatch.Groups["name"].Value));
+                //Console.WriteLine(string.Format("file:{0}", globalPath + "/" + ftpMatch.Groups["name"].Value));
                 return new FTPFileTreeNode(ftpMatch.Groups["name"].Value.Trim(), globalPath, parent, root, localPath);
             }
 

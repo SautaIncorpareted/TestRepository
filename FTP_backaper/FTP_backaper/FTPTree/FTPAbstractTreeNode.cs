@@ -8,7 +8,6 @@ namespace FTP_backaper.FTPTree
 {
     public abstract class FTPAbstractTreeNode
     {
-        //protected List<string> ignoreList = new List<string>() { ".", ".." };
         public FTPAbstractTreeNode(string name, string globalPath, FTPAbstractTreeNode parent, FTPRootTreeNode rootTreeNode, string localPath)
         {
             Name = name;
