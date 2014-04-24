@@ -7,10 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTP_backaper", "FTP_backape
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTP_Connector", "FTP_Connector\FTP_Connector.csproj", "{48741041-4CCE-4DCD-A40C-DF02CB78C853}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFTPConnect", "TestFTPConnect\TestFTPConnect.csproj", "{10F1D8A7-29C0-4D73-882D-28AE6830C997}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{EABD787F-243C-422A-ABD4-1CA62C374699}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IOHelper", "IOHelper\IOHelper.csproj", "{80734BAE-B784-4F48-8C5E-5DD78D4C2AD7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTPGUIBackupper", "FTPGUIBackupper\FTPGUIBackupper.csproj", "{45AD2FC5-4F8B-4D49-97F8-CBF9AF235B84}"
@@ -49,26 +45,6 @@ Global
 		{48741041-4CCE-4DCD-A40C-DF02CB78C853}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{48741041-4CCE-4DCD-A40C-DF02CB78C853}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{48741041-4CCE-4DCD-A40C-DF02CB78C853}.Release|x86.ActiveCfg = Release|Any CPU
-		{10F1D8A7-29C0-4D73-882D-28AE6830C997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{10F1D8A7-29C0-4D73-882D-28AE6830C997}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{10F1D8A7-29C0-4D73-882D-28AE6830C997}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{10F1D8A7-29C0-4D73-882D-28AE6830C997}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{10F1D8A7-29C0-4D73-882D-28AE6830C997}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{10F1D8A7-29C0-4D73-882D-28AE6830C997}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{10F1D8A7-29C0-4D73-882D-28AE6830C997}.Release|Any CPU.Build.0 = Release|Any CPU
-		{10F1D8A7-29C0-4D73-882D-28AE6830C997}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{10F1D8A7-29C0-4D73-882D-28AE6830C997}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{10F1D8A7-29C0-4D73-882D-28AE6830C997}.Release|x86.ActiveCfg = Release|Any CPU
-		{EABD787F-243C-422A-ABD4-1CA62C374699}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EABD787F-243C-422A-ABD4-1CA62C374699}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EABD787F-243C-422A-ABD4-1CA62C374699}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{EABD787F-243C-422A-ABD4-1CA62C374699}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{EABD787F-243C-422A-ABD4-1CA62C374699}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{EABD787F-243C-422A-ABD4-1CA62C374699}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EABD787F-243C-422A-ABD4-1CA62C374699}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EABD787F-243C-422A-ABD4-1CA62C374699}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{EABD787F-243C-422A-ABD4-1CA62C374699}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{EABD787F-243C-422A-ABD4-1CA62C374699}.Release|x86.ActiveCfg = Release|Any CPU
 		{80734BAE-B784-4F48-8C5E-5DD78D4C2AD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{80734BAE-B784-4F48-8C5E-5DD78D4C2AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80734BAE-B784-4F48-8C5E-5DD78D4C2AD7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
