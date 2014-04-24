@@ -14,7 +14,7 @@ namespace ConsoleApplication1
         {
             var now = DateTime.Now;
 
-            FTPConnector connector = new FTPConnector("", 21, "451417451417", "1", x => Console.WriteLine(x));
+            FTPConnector connector = new FTPConnector();
 
             FTPRootTreeNode root = new FTPRootTreeNode("", "docu2/data/pages", connector, @"D:\docu");
             root.MapToObject();
