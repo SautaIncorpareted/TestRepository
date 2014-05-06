@@ -19,6 +19,9 @@ namespace FTP_Connector
             ErrLog = errLog;
             uri = builder.Uri;
         }
+
+
+
         public string ReadFile(string path)
         {
             try
